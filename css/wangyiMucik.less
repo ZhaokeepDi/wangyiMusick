@@ -1,0 +1,174 @@
+.bacgSize{
+    background-size:100% 100%
+};
+*{
+    padding:0px;
+    margin:0px;
+};
+.tabs(1);
+.tabs(@s) when (@s =< 5){
+    .log-@{s}{
+        background:url("../img/main@{s}.png") no-repeat 0 0;
+    }
+    .tabs((@s+1))
+};
+
+//.generate-columns(1);  
+//.generate-columns(@n) when (@n =< 5) {  
+//.column-@{n} {  
+//  background:url(../img/xxx@n.jpg);  
+//}  
+//.generate-columns( (@n + 1));
+//} 
+.navs(1);
+.navs(@n) when (@n =< 5){
+    .column-@{n}{
+        background:url("../img/xxx@{n}.jpg") no-repeat 0 0;
+    }
+    .navs((@n+1))
+};
+html{
+    width:100%;
+    height:100%;
+}
+body{
+    display:flex;
+    font-size:16px;
+    flex-direction:column;
+    width:100%;
+    height:100%;
+}
+//less中的背景图片循环
+//.你的父类名(@变量) when (@变量 < 你想要循环出来的图片数 ) {
+//  .子类名@{变量} {
+//      background:url("../img/图片前缀名字@{变量}.png") no-repeat 0 0;
+//  }
+//.你的父类名(( @变量 + 1 ));// 递归调用自身
+//}
+//.你的父类名(赋值变量)
+header{
+    width:10rem;
+    height:1.5rem;
+    background:linear-gradient(90deg,#23266A,#263391,#2D3995);
+
+    display:flex;
+    flex-direction:column-reverse;
+    font-size:0px;
+        .navs{
+        display:flex;
+        width:100%;
+        height:1rem;
+        .column-1,.column-5{
+            flex:2;
+            background-size:50% 100%;
+        };
+        .column-1{
+            background-position: left
+        };
+        .column-5{
+            background-position: right
+        };
+        .column-3,.column-4,.column-2{
+            flex:1;
+            .bacgSize
+        };
+    };
+};
+main{
+    flex:5;
+    display:flex;
+    .tabs{
+        font-size:0px;
+        display:flex;
+        flex-direction: column;
+        width:100%;
+         li{
+            background:#0A34A4;
+            width:100%;
+            height:1rem;
+            flex:1;
+            display:flex;
+            box-sizing: border-box;
+            align-items: center;
+            font-size:0.4rem;
+            border-bottom:1px solid white ;
+            span{
+                width:0.7rem;
+                height:0.7rem;
+                position:relative;
+                bottom:0.1rem;
+                .bacgSize
+            };
+        }; 
+    }; 
+};
+aside{
+    background:aqua;
+    flex:0.65;
+    position:relative;
+    line-height:100%;
+    display:flex;
+    justify-content: space-between;
+    .log-set{
+        display:flex;
+        margin-left:1rem;
+        font-size:0.4rem;
+        align-items: center;
+    }
+    .log-set::before{
+        content:'';
+        display:inline-block;
+        position:absolute;
+        width:0.7rem;
+        height:0.7rem;
+        left:0.3rem;
+        align-items: center;
+        background:url(../img/箭头.png);
+        .bacgSize
+    }
+    .log-6{
+        width:1rem;
+        height:1rem;
+        align-items: center;
+        background:url(../img/设置.png);
+        .bacgSize
+    }
+}
+article{
+    background:red;
+    flex:4;
+    display:flex;
+    flex-direction: column;
+    div{
+        width:100%;
+        height:2rem;
+        display:flex;           
+        flex-wrap:wrap;
+        .list1{
+            flex:2;
+            background:url(../img/目录1.png);
+            .bacgSize;
+            
+        }
+        .list-1{
+            flex: 8;
+            flex-direction:column;
+            justify-content:center;
+        }
+        .list3{
+            flex:2;
+            background:url(../img/目录2.png);
+            .bacgSize;
+        }
+        .list-2{
+            flex:8;
+            flex-direction:column;
+            justify-content:center;
+        }
+    }
+}
+
+footer{
+    flex:1.5;
+    background:plum
+}
