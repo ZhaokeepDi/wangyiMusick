@@ -60,14 +60,20 @@
 			</div>
 		</div>
 	</article>
-	<footer></footer>
+	<footer>
+	     <input type="text" placeholder="juujjjj">
+	</footer>
 	<script>
 		var header=document.querySelector('header');
+		var inp=document.querySelector('input');
 		header.addEventListener("touchstart",()=>{
 			console.log('这是安卓点击事件')
 		})
 		header.addEventListener("click",()=>{
 			console.log('这是PC点击事件')
+		})
+		inp.addEventListener('touchstart',(e)=>{
+		   e.stopDefoult();
 		})
 	</script>
 </body>
