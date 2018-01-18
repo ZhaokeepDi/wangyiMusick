@@ -61,20 +61,13 @@
 		</div>
 	</article>
 	<footer>
-	     <input type="text" placeholder="juujjjj">
+		<input type="text" placeholder="这是测试"/>
 	</footer>
 	<script>
-		var header=document.querySelector('header');
-		var inp=document.querySelector('input');
-		header.addEventListener("touchstart",()=>{
-			console.log('这是安卓点击事件')
-		})
-		header.addEventListener("click",()=>{
-			console.log('这是PC点击事件')
-		})
-		inp.addEventListener('touchstart',(e)=>{
-		   e.preventDefoult();
-			alert('dhskf')
+		var loca=document.querySelector('input');
+		loca.addEventListener("touchstart",(e)=>{
+			e.preventDefault();
+			e.stopPropagation()
 		})
 	</script>
 </body>
